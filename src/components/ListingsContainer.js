@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({search}) {
+function ListingsContainer({search, locationSearch}) {
   const [listingCards, setListingCards] = useState([])
 
   function handleDelete(id) {
@@ -25,6 +25,13 @@ function ListingsContainer({search}) {
     } else {
       return listingObj.description.toLowerCase().includes(search.toLowerCase())
     }
+  }).filter(listingObj => {
+    if(locationSearch === "") {
+      return true
+    } else {
+      return listingObj.location.toLowerCase().includes(locationSearch.toLowerCase())
+    }
+
   }).map(listingObj => {
     return (
       <ListingCard 

@@ -1,7 +1,8 @@
 import React from "react";
 import Search from "./Search";
+import LocationSearch from "./LocationSearch"
 
-function Header({setSearch}) {
+function Header({setSearch, setLocationSearch}) {
   return (
     <header>
       <h1>
@@ -11,6 +12,7 @@ function Header({setSearch}) {
         gregslist
       </h1>
       <Search setSearch={setSearch} />
+      <LocationSearch setLocationSearch={setLocationSearch} />
     </header>
   );
 }
